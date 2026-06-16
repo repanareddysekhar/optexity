@@ -108,13 +108,13 @@ def main() -> int:
     if not os.getenv("GOOGLE_API_KEY"):
         print("\nNote: GOOGLE_API_KEY is not set — agentic browser-use runs will fail until it is set.")
 
-    print("\n✓ Setup OK. Run inference with THIS python:")
+    print("\n✓ Setup OK. Run the cache-learning demo with THIS python:")
     print("  cd /Users/rreddy/Documents/repana/optexity")
     print("  source .venv/bin/activate")
-    print("  export OPTEXITY_API_KEY=... GOOGLE_API_KEY=... DEPLOYMENT=dev")
-    print("  optexity inference --port 9000 --child_process_id 0")
-    print("\nWith test_automation.json present + DEPLOYMENT=dev, /inference uses")
-    print("local test_automation.json (any endpoint_name/input_parameters work).")
+    print("  export API_KEY=... GOOGLE_API_KEY=... DEPLOYMENT=dev")
+    print("  python -m optexity.examples.step_cache_learning demo")
+    print("\nIteration 1 uses the LLM (agentic). Iteration 2 replays the copied cache:")
+    print("  cache_iterations/iteration_1_cached.json -> test_automation_cached.json")
     return 0
 
 
