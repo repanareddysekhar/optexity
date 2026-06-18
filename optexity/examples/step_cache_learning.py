@@ -3,6 +3,11 @@
 Default seed workflow (``test_automation_iteration1.json``): Sauce Demo checkout —
 login → add products → cart → multi-page checkout → order confirmation.
 
+File roles:
+- ``test_automation_iteration1.json`` — iteration 1 agentic seed (LLM explores)
+- ``test_automation_cached.json`` — learned deterministic replay from cache
+- ``test_automation.json`` — local ``/inference`` entrypoint (synced to cached output)
+
 Workflow (``demo`` / ``iterate``):
 1. **Iteration 1 (agentic)** — run ``test_automation_iteration1.json``; browser-use
    explores with the LLM and writes ``step_cache.json`` under task logs.
@@ -52,7 +57,7 @@ from optexity.utils.settings import settings
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
-AGENTIC_AUTOMATION = REPO_ROOT / "test_automation.json"
+LOCAL_INFERENCE_AUTOMATION = REPO_ROOT / "test_automation.json"
 CACHED_AUTOMATION = REPO_ROOT / "test_automation_cached.json"
 ITERATION1_AUTOMATION = REPO_ROOT / "test_automation_iteration1.json"
 ITERATION_OUTPUT_DIR = REPO_ROOT / "cache_iterations"
@@ -156,6 +161,7 @@ def _promote_agentic_cache(
     iteration_copy = output_dir / "iteration_1_cached.json"
     _copy_cached_file(cache_in_logs, iteration_copy)
     _copy_cached_file(iteration_copy, CACHED_AUTOMATION)
+    _copy_cached_file(iteration_copy, LOCAL_INFERENCE_AUTOMATION)
     return CACHED_AUTOMATION
 
 
@@ -265,6 +271,7 @@ async def run_iterative_learning(
                     copy_targets = [
                         str(output_dir / "iteration_1_cached.json"),
                         str(CACHED_AUTOMATION),
+                        str(LOCAL_INFERENCE_AUTOMATION),
                     ]
 
         run_summary.append(

@@ -1,5 +1,5 @@
 {
-  "url": "https://www.roboform.com/filling-test-all-fields",
+  "url": "https://www.saucedemo.com/",
   "parameters": {
     "input_parameters": {},
     "generated_parameters": {}
@@ -9,11 +9,11 @@
       "type": "action_node",
       "interaction_action": {
         "input_text": {
-          "command": "locator(\"input[name='01___title']\").first",
-          "prompt_instructions": "Fill Title, First Name, and Middle Initial fields with test data.",
+          "command": "locator(\"input[data-test='username']\").first",
+          "prompt_instructions": "Log in to the website using standard_user and secret_sauce.",
           "skip_command": false,
           "skip_prompt": true,
-          "input_text": "Mr."
+          "input_text": "standard_user"
         }
       }
     },
@@ -21,11 +21,66 @@
       "type": "action_node",
       "interaction_action": {
         "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[2]/div[2]/input\").first",
-          "prompt_instructions": "Fill Title, First Name, and Middle Initial fields with test data.",
+          "command": "locator(\"input[data-test='password']\").first",
+          "prompt_instructions": "Log in to the website using standard_user and secret_sauce.",
           "skip_command": false,
           "skip_prompt": true,
-          "input_text": "John"
+          "input_text": "secret_sauce"
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "click_element": {
+          "command": "locator(\"input[data-test='login-button']\").first",
+          "prompt_instructions": "Log in to the website using standard_user and secret_sauce.",
+          "skip_command": false,
+          "skip_prompt": true
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "click_element": {
+          "command": "locator(\"button[data-test='add-to-cart-sauce-labs-backpack']\").first",
+          "prompt_instructions": "Add 'Sauce Labs Backpack' and 'Sauce Labs Bike Light' to the cart, and click on the shopping cart link.",
+          "skip_command": false,
+          "skip_prompt": true
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "click_element": {
+          "command": "locator(\"button[data-test='add-to-cart-sauce-labs-bike-light']\").first",
+          "prompt_instructions": "Add 'Sauce Labs Backpack' and 'Sauce Labs Bike Light' to the cart, and click on the shopping cart link.",
+          "skip_command": false,
+          "skip_prompt": true
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "click_element": {
+          "command": "locator(\"a[data-test='shopping-cart-link']\").first",
+          "prompt_instructions": "Add 'Sauce Labs Backpack' and 'Sauce Labs Bike Light' to the cart, and click on the shopping cart link.",
+          "skip_command": false,
+          "skip_prompt": true
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "click_element": {
+          "command": "locator(\"button[data-test='checkout']\").first",
+          "prompt_instructions": "Click the Checkout button to proceed to the checkout information form.",
+          "skip_command": false,
+          "skip_prompt": true
         }
       }
     },
@@ -33,11 +88,11 @@
       "type": "action_node",
       "interaction_action": {
         "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[3]/div[2]/input\").first",
-          "prompt_instructions": "Fill Title, First Name, and Middle Initial fields with test data.",
+          "command": "locator(\"input[data-test='firstName']\").first",
+          "prompt_instructions": "Fill in the checkout form with First Name 'Alex', Last Name 'Rivera', Zip/Postal Code '94103', and click Continue.",
           "skip_command": false,
           "skip_prompt": true,
-          "input_text": "A"
+          "input_text": "Alex"
         }
       }
     },
@@ -45,11 +100,11 @@
       "type": "action_node",
       "interaction_action": {
         "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[4]/div[2]/input\").first",
-          "prompt_instructions": "Fill Last Name, Full Name, and Company fields with test data.",
+          "command": "locator(\"input[data-test='lastName']\").first",
+          "prompt_instructions": "Fill in the checkout form with First Name 'Alex', Last Name 'Rivera', Zip/Postal Code '94103', and click Continue.",
           "skip_command": false,
           "skip_prompt": true,
-          "input_text": "Doe"
+          "input_text": "Rivera"
         }
       }
     },
@@ -57,104 +112,8 @@
       "type": "action_node",
       "interaction_action": {
         "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[5]/div[2]/input\").first",
-          "prompt_instructions": "Fill Last Name, Full Name, and Company fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "John A Doe"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"input[name='05_company']\").first",
-          "prompt_instructions": "Fill Last Name, Full Name, and Company fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "Acme Corp"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[7]/div[2]/input\").first",
-          "prompt_instructions": "Fill Position, Address Line 1, and Address Line 2 fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "QA Engineer"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[8]/div[2]/input\").first",
-          "prompt_instructions": "Fill Position, Address Line 1, and Address Line 2 fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "123 Main Street"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[9]/div[2]/input\").first",
-          "prompt_instructions": "Fill Position, Address Line 1, and Address Line 2 fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "Suite 400"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[10]/div[2]/input\").first",
-          "prompt_instructions": "Fill City, State / Province, and Country fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "San Francisco"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[11]/div[2]/input\").first",
-          "prompt_instructions": "Fill City, State / Province, and Country fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "California"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"input[name='15_country']\").first",
-          "prompt_instructions": "Fill City, State / Province, and Country fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "United States"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[13]/div[2]/input\").first",
-          "prompt_instructions": "Fill Zip, Home Phone, and Work Telephone fields with test data.",
+          "command": "locator(\"input[data-test='postalCode']\").first",
+          "prompt_instructions": "Fill in the checkout form with First Name 'Alex', Last Name 'Rivera', Zip/Postal Code '94103', and click Continue.",
           "skip_command": false,
           "skip_prompt": true,
           "input_text": "94103"
@@ -164,252 +123,22 @@
     {
       "type": "action_node",
       "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[14]/div[2]/input\").first",
-          "prompt_instructions": "Fill Zip, Home Phone, and Work Telephone fields with test data.",
+        "click_element": {
+          "command": "locator(\"input[data-test='continue']\").first",
+          "prompt_instructions": "Click the Continue button to proceed to the checkout overview page.",
           "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "555-0199"
+          "skip_prompt": true
         }
       }
     },
     {
       "type": "action_node",
       "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[15]/div[2]/input\").first",
-          "prompt_instructions": "Fill Zip, Home Phone, and Work Telephone fields with test data.",
+        "click_element": {
+          "command": "locator(\"button[data-test='finish']\").first",
+          "prompt_instructions": "Click the Finish button to complete the order.",
           "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "555-0100"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[16]/div[2]/input\").first",
-          "prompt_instructions": "Fill Fax, Cell Phone, and E-mail fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "555-0111"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[17]/div[2]/input\").first",
-          "prompt_instructions": "Fill Fax, Cell Phone, and E-mail fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "555-0122"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[18]/div[2]/input\").first",
-          "prompt_instructions": "Fill Fax, Cell Phone, and E-mail fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "john.doe@example.com"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[1]/div[19]/div[2]/input\").first",
-          "prompt_instructions": "Fill Web Site, User ID, and Password fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "https://www.example.com"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"input[name='30_user_id']\").first",
-          "prompt_instructions": "Fill Web Site, User ID, and Password fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "johndoe123"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[2]/div[2]/div[2]/input\").first",
-          "prompt_instructions": "Fill Web Site, User ID, and Password fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "SuperSecurePass123!"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[2]/div[4]/div[2]/input\").first",
-          "prompt_instructions": "Fill Credit Card Number, Card Verification Code, and Card User Name fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "1234567890123456"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[2]/div[5]/div[2]/input\").first",
-          "prompt_instructions": "Fill Credit Card Number, Card Verification Code, and Card User Name fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "123"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"input[name='44cc_uname']\").first",
-          "prompt_instructions": "Fill Credit Card Number, Card Verification Code, and Card User Name fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "John A Doe"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[2]/div[8]/div[2]/input\").first",
-          "prompt_instructions": "Fill Card Issuing Bank, Card Customer Service Phone, and Sex fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "Chase"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[2]/div[9]/div[2]/input\").first",
-          "prompt_instructions": "Fill Card Issuing Bank, Card Customer Service Phone, and Sex fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "555-0155"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[2]/div[10]/div[2]/input\").first",
-          "prompt_instructions": "Fill Card Issuing Bank, Card Customer Service Phone, and Sex fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "Male"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[2]/div[11]/div[2]/input\").first",
-          "prompt_instructions": "Fill Social Security Number, Driver License Number, and Age fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "000-12-3456"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[2]/div[12]/div[2]/input\").first",
-          "prompt_instructions": "Fill Social Security Number, Driver License Number, and Age fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "D1234567"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[2]/div[14]/div[2]/input\").first",
-          "prompt_instructions": "Fill Social Security Number, Driver License Number, and Age fields with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "30"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"xpath=html/body/div[2]/form/div/div[2]/div[15]/div[2]/input\").first",
-          "prompt_instructions": "Fill the remaining 4 text fields (Birth Place, Income, Custom Message, Comments) on the form with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "New York"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"input[name='68__income']\").first",
-          "prompt_instructions": "Fill the remaining 4 text fields (Birth Place, Income, Custom Message, Comments) on the form with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "100000"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"input[name='71__custom']\").first",
-          "prompt_instructions": "Fill the remaining 4 text fields (Birth Place, Income, Custom Message, Comments) on the form with test data.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "Hello World"
-        }
-      }
-    },
-    {
-      "type": "action_node",
-      "interaction_action": {
-        "input_text": {
-          "command": "locator(\"input[name='72__commnt']\").first",
-          "prompt_instructions": "Fill the Comments field with test data to complete all text fields on the form.",
-          "skip_command": false,
-          "skip_prompt": true,
-          "input_text": "This is a test comment"
+          "skip_prompt": true
         }
       }
     }
