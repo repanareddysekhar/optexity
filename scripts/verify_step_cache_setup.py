@@ -113,7 +113,8 @@ def main() -> int:
     print("  source .venv/bin/activate")
     print("  export API_KEY=... GOOGLE_API_KEY=... DEPLOYMENT=dev")
     print("  python -m optexity.examples.step_cache_learning demo")
-    print("\nIteration 1 uses the LLM (agentic). Iteration 2 replays the copied cache:")
+    print("\nDefault demo: Sauce Demo login + checkout (test_automation_iteration1.json)")
+    print("Iteration 1 uses the LLM (agentic). Iteration 2 replays the copied cache:")
     print("  cache_iterations/iteration_1_cached.json -> test_automation_cached.json")
     return 0
 

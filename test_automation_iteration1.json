@@ -1,7 +1,10 @@
 {
-  "url": "https://www.roboform.com/filling-test-all-fields",
+  "url": "https://www.saucedemo.com/",
   "parameters": {
-    "input_parameters": {},
+    "input_parameters": {
+      "username": ["standard_user"],
+      "password": ["secret_sauce"]
+    },
     "generated_parameters": {}
   },
   "nodes": [
@@ -9,8 +12,8 @@
       "type": "action_node",
       "interaction_action": {
         "agentic_task": {
-          "task": "Fill all visible text input fields in this form with realistic test data. Skip non-text controls and finish when all text fields are populated.",
-          "max_steps": 45,
+          "task": "Complete this multi-step e-commerce checkout:\n1. Log in with username {username[0]} and password {password[0]}.\n2. On the inventory page, add 'Sauce Labs Backpack' and 'Sauce Labs Bike Light' to the cart.\n3. Open the shopping cart and click Checkout.\n4. On checkout step one, fill First Name Alex, Last Name Rivera, Zip/Postal Code 94103, then click Continue.\n5. On the overview page, click Finish.\n6. Stop when the order confirmation page shows 'Thank you for your order'.",
+          "max_steps": 30,
           "backend": "browser_use",
           "use_vision": false,
           "keep_alive": true

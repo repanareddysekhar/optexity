@@ -1,5 +1,8 @@
 """Iterative cache-learning demo for the Optexity take-home assignment.
 
+Default seed workflow (``test_automation_iteration1.json``): Sauce Demo checkout —
+login → add products → cart → multi-page checkout → order confirmation.
+
 Workflow (``demo`` / ``iterate``):
 1. **Iteration 1 (agentic)** — run ``test_automation_iteration1.json``; browser-use
    explores with the LLM and writes ``step_cache.json`` under task logs.
@@ -76,8 +79,8 @@ def _build_task(automation: Automation) -> Task:
         recording_id=str(uuid.uuid4()),
         endpoint_name="local_step_cache_learning",
         automation=automation,
-        input_parameters={},
-        secure_parameters={},
+        input_parameters=dict(automation.parameters.input_parameters),
+        secure_parameters=dict(automation.parameters.secure_parameters),
         unique_parameter_names=[],
         created_at=datetime.now(timezone.utc),
         status="queued",
