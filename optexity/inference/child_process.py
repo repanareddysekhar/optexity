@@ -27,6 +27,7 @@ from optexity.inference.core.logging import (
 )
 from optexity.inference.infra.actual_browser import ActualBrowser
 from optexity.inference.infra.browser_health import consume_browser_restart_request
+from optexity.schema.automation import Automation
 from optexity.schema.enums import ExitCodes
 from optexity.schema.inference import InferenceRequest
 from optexity.schema.memory import SystemInfo
@@ -93,6 +94,26 @@ def log_system_info(comment: str):
         )
     )
     logger.info("=" * 100 + "\n")
+
+
+def _load_local_test_automation() -> Automation:
+    with open("test_automation.json", encoding="utf-8") as f:
+        return Automation.model_validate(json.load(f))
+
+
+def _align_task_parameters_with_automation(task: Task, automation: Automation) -> None:
+    """Match task input/secure parameters to the automation schema."""
+    task.automation = automation
+    task.input_parameters = {
+        key: task.input_parameters.get(key, automation.parameters.input_parameters[key])
+        for key in automation.parameters.input_parameters
+    }
+    task.secure_parameters = {
+        key: task.secure_parameters.get(
+            key, automation.parameters.secure_parameters[key]
+        )
+        for key in automation.parameters.secure_parameters
+    }
 
 
 async def restart_global_actual_browser(reason: str) -> None:
@@ -559,7 +580,7 @@ def get_app_with_endpoints(is_aws: bool, child_id: int, port: int = -1):
         async def inference(inference_request: InferenceRequest = Body(...)):
             response_data: dict | None = None
             try:
-
+                test_automation_path = pathlib.Path("test_automation.json")
                 async with httpx.AsyncClient(timeout=30.0) as client:
                     url = urljoin(settings.SERVER_URL, settings.INFERENCE_ENDPOINT)
                     headers = {"x-api-key": settings.OPTEXITY_API_KEY}
@@ -573,6 +594,14 @@ def get_app_with_endpoints(is_aws: bool, child_id: int, port: int = -1):
                 task_data = response_data["task"]
 
                 task = Task.model_validate_json(task_data)
+                if test_automation_path.exists():
+                    _align_task_parameters_with_automation(
+                        task, _load_local_test_automation()
+                    )
+                    logger.info(
+                        "Using local test_automation.json override (url=%s)",
+                        task.automation.url,
+                    )
                 if task.use_proxy and settings.PROXY_URL is None:
                     raise ValueError(
                         "PROXY_URL is not set and is required when use_proxy is True"

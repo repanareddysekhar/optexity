@@ -1,0 +1,146 @@
+{
+  "url": "https://www.saucedemo.com/",
+  "parameters": {
+    "input_parameters": {},
+    "generated_parameters": {}
+  },
+  "nodes": [
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "input_text": {
+          "command": "locator(\"input[data-test='username']\").first",
+          "prompt_instructions": "Log in to Swag Labs using standard_user and secret_sauce.",
+          "skip_command": false,
+          "skip_prompt": true,
+          "input_text": "standard_user"
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "input_text": {
+          "command": "locator(\"input[data-test='password']\").first",
+          "prompt_instructions": "Log in to Swag Labs using standard_user and secret_sauce.",
+          "skip_command": false,
+          "skip_prompt": true,
+          "input_text": "secret_sauce"
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "click_element": {
+          "command": "locator(\"input[data-test='login-button']\").first",
+          "prompt_instructions": "Log in to Swag Labs using standard_user and secret_sauce.",
+          "skip_command": false,
+          "skip_prompt": true
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "click_element": {
+          "command": "locator(\"button[data-test='add-to-cart-sauce-labs-backpack']\").first",
+          "prompt_instructions": "Add 'Sauce Labs Backpack' and 'Sauce Labs Bike Light' to the cart, then open the shopping cart.",
+          "skip_command": false,
+          "skip_prompt": true
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "click_element": {
+          "command": "locator(\"button[data-test='add-to-cart-sauce-labs-bike-light']\").first",
+          "prompt_instructions": "Add 'Sauce Labs Backpack' and 'Sauce Labs Bike Light' to the cart, then open the shopping cart.",
+          "skip_command": false,
+          "skip_prompt": true
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "click_element": {
+          "command": "locator(\"a[data-test='shopping-cart-link']\").first",
+          "prompt_instructions": "Add 'Sauce Labs Backpack' and 'Sauce Labs Bike Light' to the cart, then open the shopping cart.",
+          "skip_command": false,
+          "skip_prompt": true
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "click_element": {
+          "command": "locator(\"button[data-test='checkout']\").first",
+          "prompt_instructions": "Click the Checkout button to proceed to the checkout step one page.",
+          "skip_command": false,
+          "skip_prompt": true
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "input_text": {
+          "command": "locator(\"input[data-test='firstName']\").first",
+          "prompt_instructions": "Fill in the checkout form with First Name 'Alex', Last Name 'Rivera', Zip/Postal Code '94103', and click 'Continue'.",
+          "skip_command": false,
+          "skip_prompt": true,
+          "input_text": "Alex"
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "input_text": {
+          "command": "locator(\"input[data-test='lastName']\").first",
+          "prompt_instructions": "Fill in the checkout form with First Name 'Alex', Last Name 'Rivera', Zip/Postal Code '94103', and click 'Continue'.",
+          "skip_command": false,
+          "skip_prompt": true,
+          "input_text": "Rivera"
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "input_text": {
+          "command": "locator(\"input[data-test='postalCode']\").first",
+          "prompt_instructions": "Fill in the checkout form with First Name 'Alex', Last Name 'Rivera', Zip/Postal Code '94103', and click 'Continue'.",
+          "skip_command": false,
+          "skip_prompt": true,
+          "input_text": "94103"
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "click_element": {
+          "command": "locator(\"input[data-test='continue']\").first",
+          "prompt_instructions": "Click the Continue button to proceed to the checkout overview page.",
+          "skip_command": false,
+          "skip_prompt": true
+        }
+      }
+    },
+    {
+      "type": "action_node",
+      "interaction_action": {
+        "click_element": {
+          "command": "locator(\"button[data-test='finish']\").first",
+          "prompt_instructions": "Click the Finish button to complete the checkout process.",
+          "skip_command": false,
+          "skip_prompt": true
+        }
+      }
+    }
+  ]
+}
