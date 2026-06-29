@@ -10,7 +10,7 @@
       "interaction_action": {
         "input_text": {
           "command": "locator(\"input[data-test='username']\").first",
-          "prompt_instructions": "Log in to the website using standard_user and secret_sauce.",
+          "prompt_instructions": "Log in to Swag Labs using standard_user and secret_sauce.",
           "skip_command": false,
           "skip_prompt": true,
           "input_text": "standard_user"
@@ -22,7 +22,7 @@
       "interaction_action": {
         "input_text": {
           "command": "locator(\"input[data-test='password']\").first",
-          "prompt_instructions": "Log in to the website using standard_user and secret_sauce.",
+          "prompt_instructions": "Log in to Swag Labs using standard_user and secret_sauce.",
           "skip_command": false,
           "skip_prompt": true,
           "input_text": "secret_sauce"
@@ -34,7 +34,7 @@
       "interaction_action": {
         "click_element": {
           "command": "locator(\"input[data-test='login-button']\").first",
-          "prompt_instructions": "Log in to the website using standard_user and secret_sauce.",
+          "prompt_instructions": "Log in to Swag Labs using standard_user and secret_sauce.",
           "skip_command": false,
           "skip_prompt": true
         }
@@ -45,7 +45,7 @@
       "interaction_action": {
         "click_element": {
           "command": "locator(\"button[data-test='add-to-cart-sauce-labs-backpack']\").first",
-          "prompt_instructions": "Add 'Sauce Labs Backpack' and 'Sauce Labs Bike Light' to the cart, and click on the shopping cart link.",
+          "prompt_instructions": "Add 'Sauce Labs Backpack' and 'Sauce Labs Bike Light' to the cart, then open the shopping cart.",
           "skip_command": false,
           "skip_prompt": true
         }
@@ -56,7 +56,7 @@
       "interaction_action": {
         "click_element": {
           "command": "locator(\"button[data-test='add-to-cart-sauce-labs-bike-light']\").first",
-          "prompt_instructions": "Add 'Sauce Labs Backpack' and 'Sauce Labs Bike Light' to the cart, and click on the shopping cart link.",
+          "prompt_instructions": "Add 'Sauce Labs Backpack' and 'Sauce Labs Bike Light' to the cart, then open the shopping cart.",
           "skip_command": false,
           "skip_prompt": true
         }
@@ -67,7 +67,7 @@
       "interaction_action": {
         "click_element": {
           "command": "locator(\"a[data-test='shopping-cart-link']\").first",
-          "prompt_instructions": "Add 'Sauce Labs Backpack' and 'Sauce Labs Bike Light' to the cart, and click on the shopping cart link.",
+          "prompt_instructions": "Add 'Sauce Labs Backpack' and 'Sauce Labs Bike Light' to the cart, then open the shopping cart.",
           "skip_command": false,
           "skip_prompt": true
         }
@@ -78,7 +78,7 @@
       "interaction_action": {
         "click_element": {
           "command": "locator(\"button[data-test='checkout']\").first",
-          "prompt_instructions": "Click the Checkout button to proceed to the checkout information form.",
+          "prompt_instructions": "Click the Checkout button to proceed to the checkout step one page.",
           "skip_command": false,
           "skip_prompt": true
         }
@@ -89,7 +89,7 @@
       "interaction_action": {
         "input_text": {
           "command": "locator(\"input[data-test='firstName']\").first",
-          "prompt_instructions": "Fill in the checkout form with First Name 'Alex', Last Name 'Rivera', Zip/Postal Code '94103', and click Continue.",
+          "prompt_instructions": "Fill in the checkout form with First Name 'Alex', Last Name 'Rivera', Zip/Postal Code '94103', and click 'Continue'.",
           "skip_command": false,
           "skip_prompt": true,
           "input_text": "Alex"
@@ -101,7 +101,7 @@
       "interaction_action": {
         "input_text": {
           "command": "locator(\"input[data-test='lastName']\").first",
-          "prompt_instructions": "Fill in the checkout form with First Name 'Alex', Last Name 'Rivera', Zip/Postal Code '94103', and click Continue.",
+          "prompt_instructions": "Fill in the checkout form with First Name 'Alex', Last Name 'Rivera', Zip/Postal Code '94103', and click 'Continue'.",
           "skip_command": false,
           "skip_prompt": true,
           "input_text": "Rivera"
@@ -113,7 +113,7 @@
       "interaction_action": {
         "input_text": {
           "command": "locator(\"input[data-test='postalCode']\").first",
-          "prompt_instructions": "Fill in the checkout form with First Name 'Alex', Last Name 'Rivera', Zip/Postal Code '94103', and click Continue.",
+          "prompt_instructions": "Fill in the checkout form with First Name 'Alex', Last Name 'Rivera', Zip/Postal Code '94103', and click 'Continue'.",
           "skip_command": false,
           "skip_prompt": true,
           "input_text": "94103"
@@ -136,7 +136,7 @@
       "interaction_action": {
         "click_element": {
           "command": "locator(\"button[data-test='finish']\").first",
-          "prompt_instructions": "Click the Finish button to complete the order.",
+          "prompt_instructions": "Click the Finish button to complete the checkout process.",
           "skip_command": false,
           "skip_prompt": true
         }

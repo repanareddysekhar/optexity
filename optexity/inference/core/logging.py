@@ -39,7 +39,7 @@ async def start_task_in_server(task: Task):
 
         if task.local_test_override:
             logger.info(
-                "Skipping start_task server sync for local test_automation.json run"
+                "Skipping start_task server sync for local test run"
             )
             return None
 
@@ -79,7 +79,7 @@ async def complete_task_in_server(
 
         if task.local_test_override:
             logger.info(
-                "Skipping complete_task server sync for local test_automation.json run"
+                "Skipping complete_task server sync for local test run"
             )
             return None
 
@@ -245,7 +245,7 @@ async def save_trajectory_in_server(task: Task):
     try:
         if task.local_test_override:
             logger.info(
-                "Skipping save_trajectory server sync for local test_automation.json run"
+                "Skipping save_trajectory server sync for local test run"
             )
             return None
         url = urljoin(settings.SERVER_URL, settings.SAVE_TRAJECTORY_ENDPOINT)

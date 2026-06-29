@@ -116,31 +116,6 @@ def _align_task_parameters_with_automation(task: Task, automation: Automation) -
     }
 
 
-def _build_local_dev_task(inference_request: InferenceRequest) -> Task:
-    """Build a Task locally from test_automation.json (assignment dev workflow)."""
-    automation = _load_local_test_automation()
-    task = Task(
-        task_id=str(uuid.uuid4()),
-        user_id=str(uuid.uuid4()),
-        recording_id=str(uuid.uuid4()),
-        endpoint_name=inference_request.endpoint_name,
-        automation=automation,
-        input_parameters={},
-        secure_parameters={},
-        unique_parameter_names=inference_request.unique_parameter_names,
-        created_at=datetime.now(timezone.utc),
-        status="queued",
-        api_key=settings.OPTEXITY_API_KEY,
-        company_id=str(uuid.uuid4()),
-        use_proxy=inference_request.use_proxy,
-        max_timeout_in_minutes=inference_request.max_timeout_in_minutes,
-        is_dedicated=inference_request.is_dedicated,
-        local_test_override=True,
-    )
-    _align_task_parameters_with_automation(task, automation)
-    return task
-
-
 async def restart_global_actual_browser(reason: str) -> None:
     global _global_actual_browser
     logger.warning("Restarting actual browser: %s", reason)
@@ -606,35 +581,27 @@ def get_app_with_endpoints(is_aws: bool, child_id: int, port: int = -1):
             response_data: dict | None = None
             try:
                 test_automation_path = pathlib.Path("test_automation.json")
-                if settings.DEPLOYMENT == "dev" and test_automation_path.exists():
-                    task = _build_local_dev_task(inference_request)
-                    logger.info(
-                        "Local dev mode: using test_automation.json (url=%s, endpoint=%s)",
-                        task.automation.url,
-                        inference_request.endpoint_name,
+                async with httpx.AsyncClient(timeout=30.0) as client:
+                    url = urljoin(settings.SERVER_URL, settings.INFERENCE_ENDPOINT)
+                    headers = {"x-api-key": settings.OPTEXITY_API_KEY}
+                    response = await client.post(
+                        url, json=inference_request.model_dump(), headers=headers
                     )
-                else:
-                    async with httpx.AsyncClient(timeout=30.0) as client:
-                        url = urljoin(settings.SERVER_URL, settings.INFERENCE_ENDPOINT)
-                        headers = {"x-api-key": settings.OPTEXITY_API_KEY}
-                        response = await client.post(
-                            url, json=inference_request.model_dump(), headers=headers
-                        )
-                        response_data = response.json()
-                        response.raise_for_status()
+                    response_data = response.json()
+                    response.raise_for_status()
 
-                    assert response_data is not None
-                    task_data = response_data["task"]
+                assert response_data is not None
+                task_data = response_data["task"]
 
-                    task = Task.model_validate_json(task_data)
-                    if test_automation_path.exists():
-                        _align_task_parameters_with_automation(
-                            task, _load_local_test_automation()
-                        )
-                        logger.info(
-                            "Using local test_automation.json override (url=%s)",
-                            task.automation.url,
-                        )
+                task = Task.model_validate_json(task_data)
+                if test_automation_path.exists():
+                    _align_task_parameters_with_automation(
+                        task, _load_local_test_automation()
+                    )
+                    logger.info(
+                        "Using local test_automation.json override (url=%s)",
+                        task.automation.url,
+                    )
                 if task.use_proxy and settings.PROXY_URL is None:
                     raise ValueError(
                         "PROXY_URL is not set and is required when use_proxy is True"
